@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-terracotta/30 text-ink-900;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-6 py-24 md:px-12 lg:px-20 xl:px-32;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+  }
+
+  .glass {
+    @apply backdrop-blur-md bg-white/5 border border-white/10;
+  }
+
+  .glass-light {
+    @apply backdrop-blur-md bg-white/70 border border-ink-200/50;
+  }
+
+  .shimmer-text {
+    background: linear-gradient(
+      90deg,
+      currentColor 0%,
+      rgba(201, 169, 110, 1) 40%,
+      currentColor 80%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s linear infinite;
+    display: inline-block;
+    padding: 0.05em 0.12em 0.08em 0.14em;
+    margin: 0 -0.08em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  .glow-card {
+    @apply relative overflow-hidden transition-all duration-500;
+  }
+
+  .glow-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      transparent 40%,
+      rgba(201, 169, 110, 0.5) 50%,
+      transparent 60%
+    );
+    background-size: 300% 300%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s;
+    animation: gradientShift 4s ease infinite;
+    pointer-events: none;
+  }
+
+  .glow-card:hover::before {
+    opacity: 1;
+  }
+
+  .mesh-gradient-author {
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(107, 76, 154, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(201, 169, 110, 0.1) 0%, transparent 40%),
+      radial-gradient(ellipse at 60% 80%, rgba(107, 76, 154, 0.1) 0%, transparent 40%);
+  }
+
+  .mesh-gradient-copy {
+    background:
+      radial-gradient(ellipse at 30% 40%, rgba(196, 92, 62, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 60%, rgba(196, 92, 62, 0.05) 0%, transparent 40%);
+  }
+
+  .nav-link {
+    @apply relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-px transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .nav-link-author::after {
+    @apply bg-author-accent;
+  }
+
+  .nav-link-copy::after {
+    @apply bg-terracotta;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7d6b5c;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c45c3e;
+}
+
+/* Grain texture overlay */
+.grain::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
