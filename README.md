@@ -1,32 +1,32 @@
 # Pragalbha Namrata — Portfolio
 
-An animated dual-mode portfolio showcasing **Pragalbha Namrata** as both a published author (Agnst_Ella) and a content strategist & copywriter.
+Animated dual-mode portfolio for **Pragalbha Namrata**: published author (**Agnst_Ella**) and content strategist / copywriter.
 
 ## Features
 
-- **Dual-mode toggle** — Switch between Author and Copywriter personas
-- **Smooth animations** — Powered by Framer Motion
-- **Writing Portfolio** — WebNovel novels, genres, published works
-- **Copywriting Portfolio** — Services, case studies, philosophy
-- **Responsive design** — Works on all screen sizes
+- **Dual-mode toggle** — switch between Author and Copywriter personas
+- **Smooth animations** — Framer Motion
+- **Writing portfolio** — WebNovel novels, genres, published works
+- **Copywriting portfolio** — services, case studies, philosophy
+- **Responsive design** — works on all screen sizes
 
-## Quick Start
+## Quick start
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+Open [http://localhost:5173](http://localhost:5173).
 
-## Build for Production
+## Build for production
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Tech Stack
+## Tech stack
 
 - React 19 + TypeScript
 - Vite
