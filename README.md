@@ -2,6 +2,8 @@
 
 Animated dual-mode portfolio for **Pragalbha Namrata**: published author (**Agnst_Ella**) and content strategist / copywriter.
 
+**Live site:** [https://pragalbha-namrata-portfolio.vercel.app/](https://pragalbha-namrata-portfolio.vercel.app/)
+
 ## Features
 
 - **Dual-mode toggle** — switch between Author and Copywriter personas
