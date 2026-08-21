@@ -3,7 +3,24 @@
 Animated multi-portfolio site for **Pragalbha Namrata** — author (**Agnst_Ella**), content strategist & copywriter, and social media strategist for Rolling Authors®.
 
 **Live site:** [https://pragalbha-namrata-portfolio.vercel.app/](https://pragalbha-namrata-portfolio.vercel.app/)  
-**Repository:** [github.com/Monty25803/pragalbha-namrata-portfolio](https://github.com/Monty25803/pragalbha-namrata-portfolio) (private)
+**Your repo:** [github.com/Monty25803/pragalbha-namrata-portfolio](https://github.com/Monty25803/pragalbha-namrata-portfolio) (private)  
+**Sister repo:** [github.com/namrata25803-commits/pragalbha-namrata-portfolio](https://github.com/namrata25803-commits/pragalbha-namrata-portfolio)
+
+---
+
+## Syncing both GitHub remotes
+
+Local `origin` is configured to **push to both** repos. A GitHub Action also mirrors every push on `master` / `main` to the sister repo.
+
+### One-time: add the mirror secret
+
+1. Create a GitHub Personal Access Token (classic) with **`repo`** scope (account that can write to the sister repo).
+2. In **Monty25803/pragalbha-namrata-portfolio** → Settings → Secrets and variables → Actions  
+   add secret: **`SISTER_REPO_TOKEN`** = that PAT.
+3. After that, every push to this repo auto-updates  
+   `namrata25803-commits/pragalbha-namrata-portfolio`.
+
+Workflow file: `.github/workflows/mirror-to-sister.yml`
 
 ---
 

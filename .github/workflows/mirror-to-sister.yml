@@ -1,0 +1,47 @@
+name: Mirror to sister repo
+
+on:
+  push:
+    branches: [master, main]
+  workflow_dispatch:
+
+concurrency:
+  group: mirror-sister-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to namrata25803-commits repo
+        env:
+          # Prefer a PAT with write access to the sister repo.
+          # Fallback: GITHUB_TOKEN only works if this workflow runs with a token that can push there.
+          TARGET_TOKEN: ${{ secrets.SISTER_REPO_TOKEN }}
+        run: |
+          set -euo pipefail
+          TARGET="https://github.com/namrata25803-commits/pragalbha-namrata-portfolio.git"
+
+          if [ -z "${TARGET_TOKEN:-}" ]; then
+            echo "::error::Add repository secret SISTER_REPO_TOKEN (GitHub PAT with repo write access to namrata25803-commits/pragalbha-namrata-portfolio)."
+            exit 1
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          AUTH_URL="https://x-access-token:${TARGET_TOKEN}@github.com/namrata25803-commits/pragalbha-namrata-portfolio.git"
+          git remote remove sister 2>/dev/null || true
+          git remote add sister "$AUTH_URL"
+
+          BRANCH="${GITHUB_REF_NAME}"
+          echo "Mirroring branch: ${BRANCH}"
+          git push sister "HEAD:refs/heads/${BRANCH}"
+          echo "Mirror complete → ${TARGET}"
