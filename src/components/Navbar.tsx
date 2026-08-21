@@ -11,6 +11,7 @@ const navLinks = [
   { href: '#about', label: 'About' },
   { href: '#writing-portfolio', label: 'Writing' },
   { href: '#copywriting-portfolio', label: 'Copywriting' },
+  { href: '#social-strategy', label: 'Social' },
   { href: '#experience', label: 'Experience' },
   { href: '#skills', label: 'Skills' },
   { href: '#contact', label: 'Contact' },

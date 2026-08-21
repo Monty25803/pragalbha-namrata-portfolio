@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 
 .env
+
+# Local reference extracts (not shipped)
+_social_strategy_ref/
+*.zip
+*.tsbuildinfo

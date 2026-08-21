@@ -6,10 +6,11 @@ const items = [
   'Founder Narratives',
   'SEO Content',
   'LinkedIn Storytelling',
+  'Social Strategy',
+  'Instagram Systems',
   'Brand Copy',
   'WebNovel Fiction',
-  'Romance & Fantasy',
-  'Content Strategy',
+  'Content Calendars',
   'Narrative Design',
 ]
 

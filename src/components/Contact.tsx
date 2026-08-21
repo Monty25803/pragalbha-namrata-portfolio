@@ -86,7 +86,7 @@ export default function Contact({ mode }: ContactProps) {
           >
             {isAuthor
               ? 'Available for ghostwriting, serialized fiction, and creative collaborations.'
-              : 'Available for content strategy, copywriting, and brand narrative projects.'}
+              : 'Available for content strategy, copywriting, social systems, and brand narrative projects.'}
           </p>
         </motion.div>
 

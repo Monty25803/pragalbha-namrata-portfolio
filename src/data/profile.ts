@@ -21,19 +21,19 @@ export const profile = {
     author: `Welcome to the literary world of Pragalbha Namrata — a versatile digital marketing professional and published author with 4+ years of experience spanning strategic operations, data analytics, and creative content development. Writing under the pen name Agnst_Ella, I craft compelling narratives that delve deep into the complexities of human emotion, redemption, and the transformative power of love.
 
 My unique background combines strong analytical skills with creative storytelling abilities. With proven expertise in SEO optimization, conversion-focused design, and data-driven marketing strategies, I bring both technical precision and creative vision to every project. As a freelance author on WebNovel and Wattpad, I specialise in serialised fiction across romance, fantasy, and drama — maintaining a 5-star rating across all freelance projects.`,
-    copywriter: `I write content that earns trust before it asks for anything. Across email marketing, LinkedIn storytelling, brand narratives, and SEO — my work is built on one belief: the right story, told well, does more than any ad ever could.
+    copywriter: `I write content that earns trust before it asks for anything. Across email marketing, LinkedIn storytelling, brand narratives, SEO, and social strategy — my work is built on one belief: the right story, told well, does more than any ad ever could.
 
-I specialise in writing that builds authority over time — the kind that earns a reader's trust before it asks for anything in return. Currently serving as a Founder's Office Associate at Rolling Authors®, I create content for founders, ghostwriting studios, and service businesses across email, LinkedIn, and web.`,
+I specialise in writing that builds authority over time — the kind that earns a reader's trust before it asks for anything in return. Currently serving as a Founder's Office Associate at Rolling Authors®, I create content for founders, ghostwriting studios, and service businesses across email, LinkedIn, web, and social.`,
   },
 }
 
 export const stats = [
   { value: '700K+', label: 'Fiction Readers', mode: 'author' as const },
-  { value: '400K+', label: 'WebNovel Readers', mode: 'copywriter' as const },
+  { value: '2.04M', label: 'IG Views (90d)', mode: 'copywriter' as const },
   { value: '100+', label: 'Ghostwriting Orders', mode: 'both' as const },
   { value: '5/5', label: 'Client Rating', mode: 'both' as const },
   { value: '10+', label: 'Published Works', mode: 'author' as const },
-  { value: '25%', label: 'Organic Traffic Lift', mode: 'copywriter' as const },
+  { value: '1.26M', label: 'Accounts Reached', mode: 'copywriter' as const },
 ]
 
 export const copyResults = [
@@ -308,7 +308,7 @@ export const experience = [
     role: "Founder's Office Associate",
     company: 'Rolling Authors®',
     period: 'Mar 2025 — Present',
-    description: 'Supporting business strategy, content planning, and execution across writing-led initiatives. Email campaigns, founder narratives, and website copy.',
+    description: 'Supporting business strategy, content planning, and execution across writing-led initiatives. Owns social strategy and end-to-end management for Rolling Authors channels.',
     current: true,
     link: 'https://www.rollingauthors.com',
   },
@@ -367,6 +367,8 @@ export const skills = {
     'LinkedIn Thought Leadership',
     'Brand & Website Copy',
     'Conversion Copywriting',
+    'Social Media Strategy',
+    'Content Calendars',
   ],
   shared: [
     'Microsoft Excel',
@@ -375,6 +377,7 @@ export const skills = {
     'HTML & CSS',
     'ChatGPT',
     'Narrative Strategy',
+    'Performance Monitoring',
   ],
 }
 
@@ -386,3 +389,179 @@ export const certifications = [
   'ChatGPT — Great Learning',
   'Time Management — Udemy',
 ]
+
+export const socialStrategy = {
+  title: 'Social Strategy Portfolio',
+  client: 'Rolling Authors®',
+  tenure: 'Since July 2025',
+  tagline: 'A point of view before a schedule.',
+  subtitle: 'Strategy first. Management all the way through.',
+  about: `I took over Rolling Authors' social presence with no formal handover — and built the full workflow from scratch. I own ideation, calendars, copy, creative direction, publishing, and performance monitoring end to end. I direct and refine creative; I don't claim original illustration or graphic-design production.`,
+  instagram: 'https://www.instagram.com/rollingauthors/',
+  companyLinkedIn: 'https://in.linkedin.com/company/rolling-authors',
+  website: 'https://www.rollingauthors.com/',
+  metricsWindow: 'Instagram Insights · Last 90 days',
+  metrics: [
+    { value: '2.04M', label: 'Instagram Views', note: 'Discovery at scale' },
+    { value: '1.26M', label: 'Accounts Reached', note: 'Beyond existing followers' },
+    { value: '99.4%', label: 'Non-Follower Views', note: 'Proof of discovery' },
+    { value: '1,326', label: 'Interactions', note: 'Active audience response' },
+    { value: '1,244', label: 'Profile Activity', note: 'Profile-level action' },
+    { value: '1,208', label: 'Profile Visits', note: 'Interest signal' },
+  ],
+  insights: [
+    {
+      title: 'Post-led discovery',
+      description:
+        'Posts generated 80.1% of views and 96.2% of interactions — a feed-first system, not a Reels-only bet.',
+      bar: 80,
+    },
+    {
+      title: 'Reach beyond the room',
+      description:
+        '99.4% of views came from non-followers. Content expanded discovery well beyond the existing audience.',
+      bar: 99,
+    },
+    {
+      title: 'Profile as a destination',
+      description:
+        '1,244 profile activities and 1,208 profile visits show content drove people to look closer — not just scroll past.',
+      bar: 70,
+    },
+  ],
+  scope: [
+    {
+      title: 'Find the angle',
+      description: 'Ideation and positioning before anything hits the calendar.',
+    },
+    {
+      title: 'Build the system',
+      description: 'Content calendars, formats, and platform-native planning.',
+    },
+    {
+      title: 'Run end-to-end',
+      description: 'Write or adapt copy, brief creatives, schedule, and publish.',
+    },
+    {
+      title: 'Read the signal',
+      description: 'Monitor performance, refine direction, and tweak creatives where needed.',
+    },
+  ],
+  platforms: [
+    {
+      name: 'LinkedIn',
+      description: 'Thought leadership, founder stories, polls, and scenario formats that start conversations.',
+    },
+    {
+      name: 'Instagram',
+      description: 'Post-led discovery, educational carousels, community creatives, and occasion-led storytelling.',
+    },
+    {
+      name: 'Short-form',
+      description: 'Real-time positioning and lightweight experiments across feed-adjacent formats.',
+    },
+    {
+      name: 'Cross-platform trust',
+      description: 'Testimonials, proof assets, and consistent brand voice across channels.',
+    },
+  ],
+  caseStudies: [
+    {
+      title: 'Unexpressed Wishes Week',
+      type: 'Participation Campaign',
+      description:
+        'A branded-frame + hashtag participation campaign that invited the audience into the brand story — not just the feed.',
+    },
+    {
+      title: 'Backstage RA',
+      type: 'Recurring LinkedIn Format',
+      description:
+        'A scenario series positioning “real writers, not AI” — turning process transparency into trust and conversation.',
+    },
+    {
+      title: 'Founder Story Series',
+      type: 'Social Proof Asset',
+      description:
+        'Eight founder stories packaged as social proof — narrative that doubles as a sales and trust asset.',
+    },
+    {
+      title: 'Occasion-led Calendar',
+      type: 'Seasonal System',
+      description:
+        'World Book Day, Holi, Buddha Purnima, Akshaya Tritiya — cultural moments turned into on-brand creative moments.',
+    },
+  ],
+  process: [
+    { step: '01', title: 'Find the angle', description: 'Clarify the point of view before the post.' },
+    { step: '02', title: 'Make it native', description: 'Shape the idea for LinkedIn, Instagram, or short-form.' },
+    { step: '03', title: 'Write or brief', description: 'Own the copy — or brief creative with clear direction.' },
+    { step: '04', title: 'Read the signal', description: 'Publish, watch the data, refine the next move.' },
+  ],
+  instagramGallery: [
+    {
+      src: '/social/rolling-authors-instagram-ghostwriting-vs-coaching.jpg',
+      title: 'Ghostwriting vs Coaching',
+      caption: 'Educational carousel',
+      link: 'https://www.instagram.com/p/Dbr6bQdiWzM/',
+    },
+    {
+      src: '/social/rolling-authors-instagram-books-business.jpg',
+      title: 'Books as a Business Tool',
+      caption: 'Editorial illustration',
+      link: 'https://www.instagram.com/p/DcP9jD1jigo/',
+    },
+    {
+      src: '/social/rolling-authors-instagram-blank-page.jpg',
+      title: 'Blank Page',
+      caption: 'Service storytelling',
+      link: 'https://www.instagram.com/p/DcNYwbHj1g1/',
+    },
+    {
+      src: '/social/rolling-authors-instagram-career-growth.jpg',
+      title: 'Career Growth',
+      caption: 'Thought-leadership graphic',
+      link: 'https://www.instagram.com/p/DcIPLaBiQOh/',
+    },
+    {
+      src: '/social/rolling-authors-instagram-freedom.jpg',
+      title: 'Freedom',
+      caption: 'Occasion-led creative',
+      link: 'https://www.instagram.com/p/DcDFkZMD8JM/',
+    },
+  ],
+  illustrations: [
+    {
+      src: '/social/rolling-authors-character-evolution.png',
+      title: 'Character Evolution',
+    },
+    {
+      src: '/social/rolling-authors-chapter-one.png',
+      title: 'Chapter One',
+    },
+    {
+      src: '/social/rolling-authors-writing-myth.png',
+      title: 'Writing Myth',
+    },
+    {
+      src: '/social/rolling-authors-query-agents.png',
+      title: 'Query Agents',
+    },
+  ],
+  linkedinGallery: [
+    {
+      src: '/social/rolling-authors-design-01.jpg',
+      title: 'LinkedIn Visual 01',
+      caption: 'Brand visual sample',
+    },
+    {
+      src: '/social/rolling-authors-design-02.jpg',
+      title: 'LinkedIn Visual 02',
+      caption: 'Brand visual sample',
+    },
+    {
+      src: '/social/1000449365.jpg',
+      title: 'Ghostwriting Poll',
+      caption: '19 votes · thought-leadership test',
+    },
+  ],
+}

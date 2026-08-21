@@ -7,6 +7,7 @@ import About from './components/About'
 import Stats from './components/Stats'
 import WritingPortfolio from './components/WritingPortfolio'
 import CopywritingPortfolio from './components/CopywritingPortfolio'
+import SocialStrategyPortfolio from './components/SocialStrategyPortfolio'
 import Experience from './components/Experience'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
@@ -43,6 +44,7 @@ export default function App() {
       <WritingPortfolio />
       <MarqueeBand />
       <CopywritingPortfolio />
+      <SocialStrategyPortfolio />
 
       <AnimatePresence mode="wait">
         <motion.div
