@@ -4,331 +4,291 @@ import { socialStrategy } from '../data/profile'
 
 export default function SocialStrategyPortfolio() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section
-      id="social-strategy"
-      ref={ref}
-      className="section-padding bg-ink-950 relative overflow-hidden"
-    >
-      <div className="absolute inset-0 mesh-gradient-author pointer-events-none opacity-60" />
+    <section id="social-strategy" ref={ref} className="relative bg-social-bg overflow-hidden">
+      {/* Hero strip */}
+      <div className="section-padding pb-12 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(126,184,154,0.12),_transparent_55%)] pointer-events-none" />
+        <div className="max-w-6xl mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 36 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl"
+          >
+            <p className="text-social-accent text-sm uppercase tracking-[0.28em] mb-4 font-medium">
+              Social Strategy Portfolio
+            </p>
+            <h2 className="font-display text-4xl md:text-6xl font-bold text-white leading-[1.12] mb-5">
+              Built for discovery.
+              <br />
+              <span className="text-social-accent italic">Measured in reach.</span>
+            </h2>
+            <p className="text-white/55 text-lg leading-relaxed max-w-2xl mb-6">
+              End-to-end social for Rolling Authors® — strategy, calendars, copy, creative direction,
+              publishing, and performance. Not a feed of tasks. A system that compounds.
+            </p>
+            <div className="flex flex-wrap gap-3 text-xs uppercase tracking-wider">
+              <span className="px-3 py-1.5 rounded-full bg-social-accent/15 text-social-soft border border-social-accent/25">
+                {socialStrategy.client}
+              </span>
+              <span className="px-3 py-1.5 rounded-full bg-white/5 text-white/55 border border-white/10">
+                {socialStrategy.tenure}
+              </span>
+              <span className="px-3 py-1.5 rounded-full bg-white/5 text-white/55 border border-white/10">
+                {socialStrategy.metricsWindow}
+              </span>
+            </div>
+          </motion.div>
+        </div>
+      </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
-        >
-          <p className="text-author-accent text-sm uppercase tracking-[0.25em] mb-4 font-medium">
-            {socialStrategy.title}
+      {/* Large metric band */}
+      <div className="px-6 md:px-12 lg:px-20 xl:px-32 pb-20">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 rounded-3xl overflow-hidden border border-white/10">
+          {socialStrategy.metrics.slice(0, 4).map((metric, i) => (
+            <motion.div
+              key={metric.label}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.15 + i * 0.08 }}
+              className="bg-social-mist p-6 md:p-8"
+            >
+              <p className="font-display text-3xl md:text-4xl font-bold text-social-accent mb-2">
+                {metric.value}
+              </p>
+              <p className="text-white/70 text-sm font-medium mb-1">{metric.label}</p>
+              <p className="text-white/35 text-xs">{metric.note}</p>
+            </motion.div>
+          ))}
+        </div>
+        <p className="max-w-6xl mx-auto mt-4 text-white/30 text-xs">
+          Claim-safe Instagram Insights only — no follower growth, leads, or revenue without baselines.
+        </p>
+      </div>
+
+      {/* Workflow */}
+      <div className="section-padding pt-0">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="font-display text-2xl md:text-3xl text-white mb-3">How the system runs</h3>
+          <p className="text-white/45 text-sm mb-10 max-w-xl">
+            Four loops. Every post passes through them — or it doesn&apos;t ship.
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
-            {socialStrategy.tagline}
-          </h2>
-          <p className="text-white/50 font-serif text-lg max-w-2xl mb-4">
-            {socialStrategy.subtitle}
+          <div className="grid md:grid-cols-2 gap-5 mb-20">
+            {socialStrategy.scope.map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ delay: 0.2 + i * 0.08 }}
+                className="group relative p-7 rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-transparent hover:border-social-accent/35 transition-colors"
+              >
+                <span className="font-display text-5xl text-social-accent/20 font-bold absolute top-4 right-6 group-hover:text-social-accent/35 transition-colors">
+                  0{i + 1}
+                </span>
+                <h4 className="font-display text-xl text-white mb-2 relative">{item.title}</h4>
+                <p className="text-white/50 text-sm leading-relaxed relative max-w-md">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Platforms as horizontal strips */}
+          <h3 className="font-display text-2xl md:text-3xl text-white mb-8">Where it lives</h3>
+          <div className="space-y-3 mb-20">
+            {socialStrategy.platforms.map((platform, i) => (
+              <motion.div
+                key={platform.name}
+                initial={{ opacity: 0, y: 16 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.25 + i * 0.06 }}
+                className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8 p-5 rounded-xl border border-white/8 hover:bg-white/[0.03] transition-colors"
+              >
+                <h4 className="font-display text-lg text-social-accent shrink-0 sm:w-40">{platform.name}</h4>
+                <p className="text-white/50 text-sm leading-relaxed">{platform.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Case studies */}
+          <h3 className="font-display text-2xl md:text-3xl text-white mb-3">Selected work</h3>
+          <p className="text-white/45 text-sm mb-10 max-w-xl">
+            Campaigns and formats that turned brand POV into participation, trust, and calendar rhythm.
           </p>
-          <div className="flex flex-wrap gap-3 text-sm">
-            <span className="px-3 py-1 rounded-full bg-author-accent/15 text-author-accent border border-author-accent/25">
-              {socialStrategy.client}
-            </span>
-            <span className="px-3 py-1 rounded-full bg-white/5 text-white/60 border border-white/10">
-              {socialStrategy.tenure}
-            </span>
+          <div className="grid md:grid-cols-2 gap-6 mb-20">
+            {socialStrategy.caseStudies.map((study, i) => (
+              <motion.article
+                key={study.title}
+                initial={{ opacity: 0, y: 24 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.3 + i * 0.08 }}
+                whileHover={{ y: -4 }}
+                className="p-7 rounded-2xl bg-social-mist border border-white/10"
+              >
+                <p className="text-social-accent text-xs uppercase tracking-[0.2em] mb-3">{study.type}</p>
+                <h4 className="font-display text-2xl text-white mb-3">{study.title}</h4>
+                <p className="text-white/50 text-sm leading-relaxed">{study.description}</p>
+              </motion.article>
+            ))}
+          </div>
+
+          {/* Insights */}
+          <div className="rounded-3xl border border-social-accent/20 bg-gradient-to-b from-social-mist to-social-bg p-8 md:p-12 mb-20">
+            <h3 className="font-display text-2xl md:text-3xl text-white mb-2">What the numbers say</h3>
+            <p className="text-white/40 text-sm mb-10 max-w-lg">
+              Interpretation beats dashboards. Evidence supports a post-led discovery engine.
+            </p>
+            <div className="space-y-8">
+              {socialStrategy.insights.map((insight) => (
+                <div key={insight.title}>
+                  <div className="flex items-end justify-between gap-4 mb-2">
+                    <h4 className="text-white font-medium">{insight.title}</h4>
+                    <span className="text-social-accent font-display text-xl">{insight.bar}%</span>
+                  </div>
+                  <p className="text-white/45 text-sm mb-3 leading-relaxed">{insight.description}</p>
+                  <div className="h-1 rounded-full bg-white/10 overflow-hidden">
+                    <motion.div
+                      className="h-full rounded-full bg-social-accent"
+                      initial={{ width: 0 }}
+                      animate={isInView ? { width: `${insight.bar}%` } : {}}
+                      transition={{ duration: 1.1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Instagram gallery — masonry-ish */}
+          <h3 className="font-display text-2xl md:text-3xl text-white mb-3">Instagram gallery</h3>
+          <p className="text-white/45 text-sm mb-8 max-w-xl">
+            Public Rolling Authors creatives — directed and managed. Illustration credit stays with design.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
+            {socialStrategy.instagramGallery.map((item, i) => (
+              <motion.a
+                key={item.title}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.35 + i * 0.05 }}
+                whileHover={{ y: -5 }}
+                className={`group relative rounded-2xl overflow-hidden border border-white/10 ${
+                  i === 0 ? 'sm:col-span-2 lg:col-span-1 lg:row-span-2' : ''
+                }`}
+              >
+                <div className={`${i === 0 ? 'aspect-[3/4] lg:h-full' : 'aspect-square'} bg-social-mist`}>
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                  <p className="text-white text-sm font-medium">{item.title}</p>
+                  <p className="text-social-soft/80 text-xs mt-0.5">{item.caption} · Instagram ↗</p>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+
+          {/* Illustrations + LinkedIn side by side on large screens */}
+          <div className="grid lg:grid-cols-2 gap-12 mb-16">
+            <div>
+              <h3 className="font-display text-2xl text-white mb-3">Illustration library</h3>
+              <p className="text-white/40 text-sm mb-6">Assets used under creative direction.</p>
+              <div className="grid grid-cols-2 gap-3">
+                {socialStrategy.illustrations.map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-xl overflow-hidden border border-white/10 bg-social-mist"
+                  >
+                    <div className="aspect-[4/5]">
+                      <img
+                        src={item.src}
+                        alt={item.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    <p className="p-2.5 text-center text-white/60 text-xs">{item.title}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h3 className="font-display text-2xl text-white mb-3">LinkedIn design</h3>
+              <p className="text-white/40 text-sm mb-6">Brand visuals and thought-leadership tests.</p>
+              <div className="space-y-4">
+                {socialStrategy.linkedinGallery.map((item) => (
+                  <div
+                    key={item.title}
+                    className="flex gap-4 rounded-xl overflow-hidden border border-white/10 bg-social-mist"
+                  >
+                    <div className="w-32 sm:w-40 shrink-0 aspect-[4/3]">
+                      <img
+                        src={item.src}
+                        alt={item.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="py-4 pr-4 flex flex-col justify-center">
+                      <h4 className="text-white text-sm font-medium">{item.title}</h4>
+                      <p className="text-white/40 text-xs mt-1">{item.caption}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Process loop */}
+          <h3 className="font-display text-2xl text-white mb-8">Process loop</h3>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            {socialStrategy.process.map((step) => (
+              <div
+                key={step.step}
+                className="p-5 rounded-2xl border border-dashed border-social-accent/25 hover:border-social-accent/50 transition-colors"
+              >
+                <span className="text-social-accent text-xs font-bold tracking-widest">{step.step}</span>
+                <h4 className="font-display text-lg text-white mt-2 mb-2">{step.title}</h4>
+                <p className="text-white/45 text-sm leading-relaxed">{step.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap gap-5 text-sm">
             <a
               href={socialStrategy.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1 rounded-full bg-white/5 text-white/60 border border-white/10 hover:text-author-accent hover:border-author-accent/40 transition-colors"
+              className="text-social-accent hover:underline"
             >
-              @rollingauthors
+              Instagram ↗
             </a>
-          </div>
-        </motion.div>
-
-        {/* Metrics */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.15 }}
-          className="mb-6"
-        >
-          <p className="text-white/40 text-xs uppercase tracking-wider mb-6">
-            Results at a glance · {socialStrategy.metricsWindow}
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-4">
-            {socialStrategy.metrics.map((metric, i) => (
-              <motion.div
-                key={metric.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.2 + i * 0.06 }}
-                whileHover={{ y: -4 }}
-                className="p-4 rounded-2xl glass text-center"
-              >
-                <p className="font-display text-2xl md:text-3xl font-bold text-author-accent mb-1">
-                  {metric.value}
-                </p>
-                <p className="text-white/70 text-xs uppercase tracking-wider mb-1">{metric.label}</p>
-                <p className="text-white/35 text-[10px]">{metric.note}</p>
-              </motion.div>
-            ))}
-          </div>
-          <p className="text-white/30 text-xs italic">
-            Claim-safe metrics only — no follower growth, leads, or revenue claims without baseline evidence.
-          </p>
-        </motion.div>
-
-        {/* About */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.3 }}
-          className="text-white/60 font-serif text-lg leading-relaxed max-w-3xl mb-16"
-        >
-          {socialStrategy.about}
-        </motion.p>
-
-        {/* Scope */}
-        <h3 className="font-display text-2xl text-white mb-6">Role in the workflow</h3>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-          {socialStrategy.scope.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.35 + i * 0.08 }}
-              className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-author-accent/30 transition-colors"
-            >
-              <span className="text-author-accent text-xs font-bold tracking-widest">
-                0{i + 1}
-              </span>
-              <h4 className="font-display text-lg font-semibold text-white mt-2 mb-2">{item.title}</h4>
-              <p className="text-white/45 text-sm leading-relaxed">{item.description}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Platforms */}
-        <h3 className="font-display text-2xl text-white mb-6">Platforms</h3>
-        <div className="grid md:grid-cols-2 gap-4 mb-16">
-          {socialStrategy.platforms.map((platform, i) => (
-            <motion.div
-              key={platform.name}
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.4 + i * 0.08 }}
-              className="p-6 rounded-2xl glass"
-            >
-              <h4 className="font-display text-xl font-semibold text-author-accent mb-2">
-                {platform.name}
-              </h4>
-              <p className="text-white/50 text-sm leading-relaxed">{platform.description}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Case studies */}
-        <h3 className="font-display text-2xl text-white mb-2">Selected projects</h3>
-        <p className="text-white/40 text-sm mb-8 max-w-2xl">
-          Campaigns and formats built for Rolling Authors — participation, trust, and calendar systems.
-        </p>
-        <div className="grid md:grid-cols-2 gap-5 mb-16">
-          {socialStrategy.caseStudies.map((study, i) => (
-            <motion.div
-              key={study.title}
-              initial={{ opacity: 0, y: 25 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.45 + i * 0.08 }}
-              whileHover={{ y: -4 }}
-              className="p-6 rounded-2xl bg-gradient-to-br from-author-glow/15 to-transparent border border-white/10 hover:border-author-accent/30 transition-all"
-            >
-              <p className="text-author-accent/80 text-xs uppercase tracking-wider mb-2">{study.type}</p>
-              <h4 className="font-display text-xl font-semibold text-white mb-3">{study.title}</h4>
-              <p className="text-white/50 text-sm leading-relaxed">{study.description}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* What the numbers say */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.5 }}
-          className="mb-16 p-8 md:p-10 rounded-3xl bg-ink-900 border border-white/10"
-        >
-          <h3 className="font-display text-2xl text-white mb-2">What the numbers say</h3>
-          <p className="text-white/40 text-sm mb-8">
-            Interpretation — not dashboard dumping. Evidence supports a post-led discovery strategy.
-          </p>
-          <div className="space-y-6">
-            {socialStrategy.insights.map((insight) => (
-              <div key={insight.title}>
-                <div className="flex items-center justify-between mb-2">
-                  <h4 className="text-white font-medium">{insight.title}</h4>
-                  <span className="text-author-accent text-sm font-semibold">{insight.bar}%</span>
-                </div>
-                <p className="text-white/45 text-sm mb-3 leading-relaxed">{insight.description}</p>
-                <div className="h-1.5 rounded-full bg-white/10 overflow-hidden">
-                  <motion.div
-                    className="h-full rounded-full bg-author-accent"
-                    initial={{ width: 0 }}
-                    animate={isInView ? { width: `${insight.bar}%` } : {}}
-                    transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Instagram gallery */}
-        <h3 className="font-display text-2xl text-white mb-2">Instagram design gallery</h3>
-        <p className="text-white/40 text-sm mb-8">
-          Public Rolling Authors creatives — directed and managed, not claimed as original illustration.
-        </p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
-          {socialStrategy.instagramGallery.map((item, i) => (
-            <motion.a
-              key={item.title}
-              href={item.link}
+            <a
+              href={socialStrategy.companyLinkedIn}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.55 + i * 0.06 }}
-              whileHover={{ y: -6 }}
-              className="group block rounded-2xl overflow-hidden border border-white/10 hover:border-author-accent/40 transition-all bg-white/5"
+              className="text-social-accent hover:underline"
             >
-              <div className="aspect-square overflow-hidden bg-ink-900">
-                <img
-                  src={item.src}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-4">
-                <h4 className="text-white font-medium text-sm group-hover:text-author-accent transition-colors">
-                  {item.title}
-                </h4>
-                <p className="text-white/40 text-xs mt-1">{item.caption} · View on Instagram ↗</p>
-              </div>
-            </motion.a>
-          ))}
-        </div>
-
-        {/* Illustration library */}
-        <h3 className="font-display text-2xl text-white mb-2">Illustration library</h3>
-        <p className="text-white/40 text-sm mb-8">
-          Rolling Authors illustration assets used under creative direction.
-        </p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-          {socialStrategy.illustrations.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: 0.6 + i * 0.06 }}
-              whileHover={{ y: -4 }}
-              className="rounded-2xl overflow-hidden border border-white/10 bg-white/5"
+              Company LinkedIn ↗
+            </a>
+            <a
+              href={socialStrategy.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-social-accent hover:underline"
             >
-              <div className="aspect-[4/5] overflow-hidden bg-ink-900">
-                <img
-                  src={item.src}
-                  alt={item.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-              <p className="p-3 text-white/70 text-sm text-center">{item.title}</p>
-            </motion.div>
-          ))}
+              rollingauthors.com ↗
+            </a>
+          </div>
         </div>
-
-        {/* LinkedIn gallery */}
-        <h3 className="font-display text-2xl text-white mb-2">LinkedIn design</h3>
-        <p className="text-white/40 text-sm mb-8">
-          Brand visuals and a thought-leadership poll that tested audience perspective.
-        </p>
-        <div className="grid md:grid-cols-3 gap-5 mb-16">
-          {socialStrategy.linkedinGallery.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.65 + i * 0.08 }}
-              whileHover={{ y: -4 }}
-              className="rounded-2xl overflow-hidden border border-white/10 bg-white/5"
-            >
-              <div className="aspect-[4/3] overflow-hidden bg-ink-900">
-                <img
-                  src={item.src}
-                  alt={item.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-4">
-                <h4 className="text-white text-sm font-medium">{item.title}</h4>
-                <p className="text-white/40 text-xs mt-1">{item.caption}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Process */}
-        <h3 className="font-display text-2xl text-white mb-8">How I work</h3>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          {socialStrategy.process.map((step, i) => (
-            <motion.div
-              key={step.step}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.7 + i * 0.08 }}
-              className="relative p-5 rounded-2xl border border-white/10"
-            >
-              <span className="font-display text-3xl text-author-accent/30 font-bold">{step.step}</span>
-              <h4 className="font-display text-lg text-white mt-2 mb-2">{step.title}</h4>
-              <p className="text-white/45 text-sm leading-relaxed">{step.description}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.85 }}
-          className="flex flex-wrap gap-4 pt-4"
-        >
-          <a
-            href={socialStrategy.website}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-author-accent hover:underline"
-          >
-            rollingauthors.com ↗
-          </a>
-          <a
-            href={socialStrategy.companyLinkedIn}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-author-accent hover:underline"
-          >
-            Rolling Authors on LinkedIn ↗
-          </a>
-          <a
-            href={socialStrategy.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-author-accent hover:underline"
-          >
-            Instagram ↗
-          </a>
-        </motion.div>
       </div>
     </section>
   )

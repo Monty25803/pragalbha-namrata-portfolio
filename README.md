@@ -11,11 +11,11 @@ Animated multi-portfolio site for **Pragalbha Namrata** — author (**Agnst_Ella
 
 | Portfolio | Focus |
 |-----------|--------|
-| **Writing** | WebNovel / Wattpad fiction, ghostwriting samples, published works |
-| **Copywriting** | Email, founder narratives, LinkedIn, SEO, brand & website copy |
-| **Social Strategy** | Rolling Authors social systems — Instagram/LinkedIn strategy, campaigns, verified 90-day metrics |
+| **Author** | WebNovel / Wattpad fiction, ghostwriting samples, published works |
+| **Copywriter** | Email, founder narratives, LinkedIn, SEO, brand & website copy |
+| **Social** | Rolling Authors social systems — Instagram/LinkedIn strategy, campaigns, verified 90-day metrics |
 
-Toggle **Author** / **Copywriter** in the nav to switch theme and emphasis. All three portfolios remain on the page.
+Use the nav toggle to switch between **Author**, **Copywriter**, and **Social**. Each mode shows its own hero, about, stats, and portfolio.
 
 ---
 

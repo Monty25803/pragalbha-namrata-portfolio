@@ -37,6 +37,12 @@ export default {
           accent: '#c45c3e',
           text: '#1a1410',
         },
+        social: {
+          bg: '#0a1210',
+          accent: '#7eb89a',
+          soft: '#c5e0d4',
+          mist: '#14201c',
+        },
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

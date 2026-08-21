@@ -1,4 +1,4 @@
-export type PortfolioMode = 'author' | 'copywriter'
+export type PortfolioMode = 'author' | 'copywriter' | 'social'
 
 export const profile = {
   name: 'Pragalbha Namrata',
@@ -16,24 +16,34 @@ export const profile = {
   tagline: {
     author: 'Crafting narratives that delve into human emotion, redemption, and the transformative power of love.',
     copywriter: 'Words that make people act.',
+    social: 'A point of view before a schedule. Strategy first — management all the way through.',
   },
   about: {
     author: `Welcome to the literary world of Pragalbha Namrata — a versatile digital marketing professional and published author with 4+ years of experience spanning strategic operations, data analytics, and creative content development. Writing under the pen name Agnst_Ella, I craft compelling narratives that delve deep into the complexities of human emotion, redemption, and the transformative power of love.
 
 My unique background combines strong analytical skills with creative storytelling abilities. With proven expertise in SEO optimization, conversion-focused design, and data-driven marketing strategies, I bring both technical precision and creative vision to every project. As a freelance author on WebNovel and Wattpad, I specialise in serialised fiction across romance, fantasy, and drama — maintaining a 5-star rating across all freelance projects.`,
-    copywriter: `I write content that earns trust before it asks for anything. Across email marketing, LinkedIn storytelling, brand narratives, SEO, and social strategy — my work is built on one belief: the right story, told well, does more than any ad ever could.
+    copywriter: `I write content that earns trust before it asks for anything. Across email marketing, LinkedIn storytelling, brand narratives, and SEO — my work is built on one belief: the right story, told well, does more than any ad ever could.
 
-I specialise in writing that builds authority over time — the kind that earns a reader's trust before it asks for anything in return. Currently serving as a Founder's Office Associate at Rolling Authors®, I create content for founders, ghostwriting studios, and service businesses across email, LinkedIn, web, and social.`,
+I specialise in writing that builds authority over time — the kind that earns a reader's trust before it asks for anything in return. Currently serving as a Founder's Office Associate at Rolling Authors®, I create content for founders, ghostwriting studios, and service businesses across email, LinkedIn, and web.`,
+    social: `Since July 2025 I've owned Rolling Authors® social end to end — ideation, calendars, copy, creative direction, publishing, and performance. I took over with no formal handover and built the system from scratch.
+
+I lead strategy and management. I brief and refine creatives; I don't claim original illustration. The proof is in the signals: 2.04M Instagram views and 1.26M accounts reached in the last 90 days — mostly from people who weren't followers yet.`,
   },
 }
 
 export const stats = [
   { value: '700K+', label: 'Fiction Readers', mode: 'author' as const },
-  { value: '2.04M', label: 'IG Views (90d)', mode: 'copywriter' as const },
-  { value: '100+', label: 'Ghostwriting Orders', mode: 'both' as const },
-  { value: '5/5', label: 'Client Rating', mode: 'both' as const },
   { value: '10+', label: 'Published Works', mode: 'author' as const },
-  { value: '1.26M', label: 'Accounts Reached', mode: 'copywriter' as const },
+  { value: '100+', label: 'Ghostwriting Orders', mode: 'author' as const },
+  { value: '5★', label: 'Freelance Rating', mode: 'author' as const },
+  { value: '25%', label: 'Organic Traffic Lift', mode: 'copywriter' as const },
+  { value: '400K+', label: 'WebNovel Readers', mode: 'copywriter' as const },
+  { value: '5/5', label: 'Client Rating', mode: 'copywriter' as const },
+  { value: '4+', label: 'Years in Content', mode: 'copywriter' as const },
+  { value: '2.04M', label: 'IG Views (90d)', mode: 'social' as const },
+  { value: '1.26M', label: 'Accounts Reached', mode: 'social' as const },
+  { value: '99.4%', label: 'Non-Follower Views', mode: 'social' as const },
+  { value: '1,244', label: 'Profile Activity', mode: 'social' as const },
 ]
 
 export const copyResults = [
@@ -367,8 +377,16 @@ export const skills = {
     'LinkedIn Thought Leadership',
     'Brand & Website Copy',
     'Conversion Copywriting',
+  ],
+  social: [
     'Social Media Strategy',
     'Content Calendars',
+    'Creative Direction',
+    'Performance Monitoring',
+    'Instagram Systems',
+    'LinkedIn Thought Leadership',
+    'Campaign Design',
+    'Cross-Platform Trust',
   ],
   shared: [
     'Microsoft Excel',
@@ -377,7 +395,6 @@ export const skills = {
     'HTML & CSS',
     'ChatGPT',
     'Narrative Strategy',
-    'Performance Monitoring',
   ],
 }
 

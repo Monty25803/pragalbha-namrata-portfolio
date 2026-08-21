@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { PortfolioMode } from './data/profile'
+import { isDarkMode, pageBg } from './lib/theme'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -17,23 +18,28 @@ import MarqueeBand from './components/MarqueeBand'
 
 export default function App() {
   const [mode, setMode] = useState<PortfolioMode>('author')
+  const dark = isDarkMode(mode)
 
   useEffect(() => {
-    document.body.style.backgroundColor = mode === 'author' ? '#0d0a12' : '#faf8f5'
+    document.body.style.backgroundColor = pageBg(mode)
   }, [mode])
 
   return (
-    <div className={`grain transition-colors duration-1000 ${mode === 'author' ? 'text-white' : 'text-ink-900'}`}>
+    <div
+      className={`grain transition-colors duration-1000 ${
+        dark ? 'text-white' : 'text-ink-900'
+      }`}
+    >
       <Navbar mode={mode} onModeChange={setMode} />
       <Hero mode={mode} />
 
       <AnimatePresence mode="wait">
         <motion.div
-          key={mode}
+          key={`intro-${mode}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.35 }}
         >
           <About mode={mode} />
           <SectionDivider mode={mode} />
@@ -41,10 +47,21 @@ export default function App() {
         </motion.div>
       </AnimatePresence>
 
-      <WritingPortfolio />
-      <MarqueeBand />
-      <CopywritingPortfolio />
-      <SocialStrategyPortfolio />
+      <MarqueeBand mode={mode} />
+
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={`portfolio-${mode}`}
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -16 }}
+          transition={{ duration: 0.45 }}
+        >
+          {mode === 'author' && <WritingPortfolio />}
+          {mode === 'copywriter' && <CopywritingPortfolio />}
+          {mode === 'social' && <SocialStrategyPortfolio />}
+        </motion.div>
+      </AnimatePresence>
 
       <AnimatePresence mode="wait">
         <motion.div
@@ -52,7 +69,7 @@ export default function App() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.45 }}
         >
           <Experience mode={mode} />
           <SectionDivider mode={mode} />

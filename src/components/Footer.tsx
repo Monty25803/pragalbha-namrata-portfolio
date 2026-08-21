@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import type { PortfolioMode } from '../data/profile'
 import { profile } from '../data/profile'
+import { accentText, isDarkMode } from '../lib/theme'
 
 interface FooterProps {
   mode: PortfolioMode
@@ -10,7 +11,14 @@ interface FooterProps {
 export default function Footer({ mode }: FooterProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
-  const isAuthor = mode === 'author'
+  const dark = isDarkMode(mode)
+
+  const roleLabel =
+    mode === 'author'
+      ? <>Writing as <span className={accentText(mode)}>{profile.penName}</span></>
+      : mode === 'social'
+        ? <>Social Strategist · Rolling Authors®</>
+        : <>Content Strategist & Copywriter</>
 
   return (
     <motion.footer
@@ -19,8 +27,10 @@ export default function Footer({ mode }: FooterProps) {
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8 }}
       className={`py-8 px-6 border-t transition-colors duration-1000 ${
-        isAuthor
-          ? 'bg-author-bg border-white/5 text-white/40'
+        dark
+          ? mode === 'social'
+            ? 'bg-social-bg border-white/5 text-white/40'
+            : 'bg-author-bg border-white/5 text-white/40'
           : 'bg-copy-bg border-ink-200 text-ink-400'
       }`}
     >
@@ -28,13 +38,7 @@ export default function Footer({ mode }: FooterProps) {
         <p className="text-sm">
           &copy; {new Date().getFullYear()} {profile.name}. All rights reserved.
         </p>
-        <p className="text-sm">
-          {isAuthor ? (
-            <>Writing as <span className={isAuthor ? 'text-author-accent' : 'text-terracotta'}>{profile.penName}</span></>
-          ) : (
-            <>Content Strategist & Copywriter</>
-          )}
-        </p>
+        <p className="text-sm">{roleLabel}</p>
         <p className="text-sm">
           Site developed by{' '}
           <motion.a
@@ -42,9 +46,7 @@ export default function Footer({ mode }: FooterProps) {
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.02 }}
-            className={`transition-colors hover:underline ${
-              isAuthor ? 'text-author-accent/80 hover:text-author-accent' : 'text-terracotta/80 hover:text-terracotta'
-            }`}
+            className={`transition-colors hover:underline ${accentText(mode)}`}
           >
             Devi Prasana Mishra
           </motion.a>
